@@ -1,0 +1,47 @@
+name: cortex/summarizer
+title: Summarizer
+description: Summarize english text
+properties:
+  -
+    name: model
+    title: Model
+    description: The analysis model to Summarize english text.
+    required: true
+    type: Enum
+    defaultValue: Algorithmia
+    validValues:
+      - Algorithmia
+  -
+    name: api_key
+    title: API Key
+    description: API Key
+    required: true
+    type: String
+inputs:
+  -
+    name: text
+    typeName: cortex/Text
+    routing:
+      property: model
+      default:
+        functionID: cortex/summarizer
+        output: analysis
+      rules:
+        -
+          match: Algorithmia
+          functionID: cortex/summarizer
+          output: analysis
+outputs:
+  -
+    name: analysis
+    typeName: cortex/SummarizerResponse
+tags:
+  -
+    label: Cloud
+    value: skill.deployment.cloud
+  -
+    label: Deep Learning
+    value: skill.machine_learning_style.deep_learning
+  -
+    label: Text
+    value: skill.cognitive_function.text

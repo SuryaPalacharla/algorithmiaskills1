@@ -1,0 +1,26 @@
+{
+"package":{
+  "name": "summarizer",
+  "version": "1.0.0",
+  "main": "__main__.py",
+  "actions": {
+    "summarizer_runtime": {
+      "function": "_main__.py",
+      "runtime": "python"
+    }
+  },
+  "dependencies": {
+    "payload_config": "",
+    "properties_config": "",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "requests": "~2.12.1",
+    "serve-favicon": "~2.4.5",
+    "algorithmia": "~0.3.10"
+  }
+}
+    }

@@ -1,0 +1,10 @@
+{
+  "payload": {
+      "source": "data://zza/public/butterfly.png",
+      "dest": "data://.algo/zza/EnhanceResolution/temp/butterfly-enhanced.png",
+      "model": "imagenet"
+    },
+  "properties" : {
+    "apiKey": "Simple simV98YMAsz/Ag1EGI2vQfNhfP51"
+  }
+}
