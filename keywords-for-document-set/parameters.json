@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "input": ["give Text"]
+
+  },
+  "properties" : {
+    "apiKey": "changeMe"
+  }
+}

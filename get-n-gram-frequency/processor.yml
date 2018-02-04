@@ -1,0 +1,49 @@
+name: cortex/get-n-gram-frequency
+title: get-n-gram-frequency
+description: Gets lists of N grams from an input text.
+
+
+properties:
+  -
+    name: model
+    title: Model
+    description: This model is to Gets lists of N grams from an input text..
+    required: true
+    type: Enum
+    defaultValue: Algorithmia
+    validValues:
+      - Algorithmia
+  -
+    name: api_key
+    title: API Key
+    description: API Key
+    required: true
+    type: String
+inputs:
+  -
+    name: text
+    typeName: cortex/Text
+    routing:
+      property: model
+      default:
+        functionID: cortex/get-n-gram-frequency
+        output: analysis
+      rules:
+        -
+          match: Algorithmia
+          functionID: cortex/get-n-gram-frequency
+          output: analysis
+outputs:
+  -
+    name: analysis
+    typeName: cortex/GetNGramFrequencyResponse
+tags:
+  -
+    label: Cloud
+    value: skill.deployment.cloud
+  -
+    label: Deep Learning
+    value: skill.machine_learning_style.deep_learning
+  -
+    label: Text
+    value: skill.cognitive_function.text

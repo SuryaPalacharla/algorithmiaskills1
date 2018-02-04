@@ -1,0 +1,49 @@
+name: cortex/profanity-detection
+title: profanity-detection
+description: Detect profanity in text automatically.
+
+
+properties:
+  -
+    name: model
+    title: Model
+    description: This module is to detect profanity in text automatically.
+    required: true
+    type: Enum
+    defaultValue: Algorithmia
+    validValues:
+      - Algorithmia
+  -
+    name: api_key
+    title: API Key
+    description: API Key
+    required: true
+    type: String
+inputs:
+  -
+    name: text
+    typeName: cortex/Text
+    routing:
+      property: model
+      default:
+        functionID: cortex/profanity-detection
+        output: analysis
+      rules:
+        -
+          match: Algorithmia
+          functionID: cortex/profanity-detection
+          output: analysis
+outputs:
+  -
+    name: analysis
+    typeName: cortex/ProfanityDetectionResponse
+tags:
+  -
+    label: Cloud
+    value: skill.deployment.cloud
+  -
+    label: Deep Learning
+    value: skill.machine_learning_style.deep_learning
+  -
+    label: Text
+    value: skill.cognitive_function.text

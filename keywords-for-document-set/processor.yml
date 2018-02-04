@@ -1,0 +1,49 @@
+name: cortex/keywords-for-document-set
+title: keywords-for-document-set
+description: Compute relevant keywords for a set of documents
+
+
+properties:
+  -
+    name: model
+    title: Model
+    description: This model is to Compute relevant keywords for a set of documents.
+    required: true
+    type: Enum
+    defaultValue: Algorithmia
+    validValues:
+      - Algorithmia
+  -
+    name: api_key
+    title: API Key
+    description: API Key
+    required: true
+    type: String
+inputs:
+  -
+    name: text
+    typeName: cortex/Text
+    routing:
+      property: model
+      default:
+        functionID: cortex/keywords-for-document-set
+        output: analysis
+      rules:
+        -
+          match: Algorithmia
+          functionID: cortex/keywords-for-document-set
+          output: analysis
+outputs:
+  -
+    name: analysis
+    typeName: cortex/ProgrammingIdentificationLanguageResponse
+tags:
+  -
+    label: Cloud
+    value: skill.deployment.cloud
+  -
+    label: Deep Learning
+    value: skill.machine_learning_style.deep_learning
+  -
+    label: Text
+    value: skill.cognitive_function.text

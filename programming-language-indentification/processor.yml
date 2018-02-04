@@ -1,0 +1,49 @@
+name: cortex/programming-language-identification
+title: programming-language-identification
+description: Detect the programming language of source code
+
+
+properties:
+  -
+    name: model
+    title: Model
+    description: This model is to Detect the programming language of source code.
+    required: true
+    type: Enum
+    defaultValue: Algorithmia
+    validValues:
+      - Algorithmia
+  -
+    name: api_key
+    title: API Key
+    description: API Key
+    required: true
+    type: String
+inputs:
+  -
+    name: text
+    typeName: cortex/Text
+    routing:
+      property: model
+      default:
+        functionID: cortex/programming-language-identification
+        output: analysis
+      rules:
+        -
+          match: Algorithmia
+          functionID: cortex/programming-language-identification
+          output: analysis
+outputs:
+  -
+    name: analysis
+    typeName: cortex/ProgrammingIdentificationLanguageResponse
+tags:
+  -
+    label: Cloud
+    value: skill.deployment.cloud
+  -
+    label: Deep Learning
+    value: skill.machine_learning_style.deep_learning
+  -
+    label: Text
+    value: skill.cognitive_function.text
